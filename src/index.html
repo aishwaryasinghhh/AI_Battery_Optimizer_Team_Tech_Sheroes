@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Battery Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="status-bar">
+                <span class="time">20:00</span>
+                <div class="status-icons">
+                    <span class="signal-icon">📶</span>
+                    <span class="wifi-icon">📶</span>
+                    <span class="battery-icon">🔋</span>
+                    <span class="battery-percentage">73%</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <h1 class="app-title">AI Battery Optimizer</h1>
+                <div class="optimization-status">
+                    <div class="status-indicator active"></div>
+                    <span>Smart Mode Active</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <section class="tab-content active" id="dashboard">
+                <!-- Battery Status -->
+                <div class="battery-widget card">
+                    <div class="battery-circle" style="position: relative;">
+                        <canvas id="batteryChart" width="120" height="120"></canvas>
+                        <div class="battery-info">
+                            <span class="battery-level">73%</span>
+                            <span class="time-remaining">8h 42m</span>
+                        </div>
+                    </div>
+                    <div class="battery-details">
+                        <div class="detail-item">
+                            <span class="label">Health</span>
+                            <span class="value excellent">Excellent</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Temperature</span>
+                            <span class="value">32.1°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Cycles</span>
+                            <span class="value">432</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Prediction Widget -->
+                <div class="prediction-widget card">
+                    <div class="widget-header">
+                        <h3>🧠 Smart Prediction</h3>
+                        <div class="accuracy-badge">91% accurate</div>
+                    </div>
+                    <div class="next-app-prediction">
+                        <div class="app-icon">📸</div>
+                        <div class="prediction-info">
+                            <h4>Next App: Instagram</h4>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" style="width: 87%"></div>
+                                <span class="confidence-text">87% confidence</span>
+                            </div>
+                            <p class="launch-time">Expected in ~15 min</p>
+                        </div>
+                    </div>
+                    <div class="alternative-predictions">
+                        <div class="alt-app">
+                            <span class="app-icon">📺</span>
+                            <span class="app-name">YouTube</span>
+                            <span class="confidence">72%</span>
+                        </div>
+                        <div class="alt-app">
+                            <span class="app-icon">🎮</span>
+                            <span class="app-name">Gaming</span>
+                            <span class="confidence">68%</span>
+                        </div>
+                        <div class="alt-app">
+                            <span class="app-icon">💬</span>
+                            <span class="app-name">Messages</span>
+                            <span class="confidence">45%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value">2h 34m</div>
+                        <div class="stat-label">Power Saved</div>
+                    </div>
+                    <div class="stat-card card">
+                        <div class="stat-icon">📱</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Apps Optimized</div>
+                    </div>
+                    <div class="stat-card card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value">94%</div>
+                        <div class="stat-label">Efficiency Score</div>
+                    </div>
+                </div>
+
+                <!-- Battery Usage Chart -->
+                <div class="chart-widget card">
+                    <h3>Battery Usage Today</h3>
+                    <div class="chart-container" style="position: relative; height: 200px;">
+                        <canvas id="batteryHistoryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn--primary btn--lg btn--full-width" id="optimizeNowBtn">
+                        <span class="btn-icon">🚀</span>
+                        Optimize Now
+                    </button>
+                </div>
+            </section>
+
+            <!-- Smart Prediction Tab -->
+            <section class="tab-content" id="predictions">
+                <div class="prediction-header card">
+                    <h2>🧠 Smart Predictions</h2>
+                    <p>AI learns your patterns to predict app usage</p>
+                </div>
+
+                <div class="usage-patterns card">
+                    <h3>Today's Usage Patterns</h3>
+                    <div class="patterns-list">
+                        <div class="pattern-item">
+                            <span class="pattern-time">6:00 AM</span>
+                            <div class="pattern-apps">
+                                <span class="app-tag">Clock</span>
+                                <span class="app-tag">Weather</span>
+                            </div>
+                            <span class="pattern-confidence">95%</span>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-time">8:00 AM</span>
+                            <div class="pattern-apps">
+                                <span class="app-tag">Email</span>
+                                <span class="app-tag">News</span>
+                            </div>
+                            <span class="pattern-confidence">88%</span>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-time">12:00 PM</span>
+                            <div class="pattern-apps">
+                                <span class="app-tag">Social</span>
+                                <span class="app-tag">Food</span>
+                            </div>
+                            <span class="pattern-confidence">92%</span>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-time">6:00 PM</span>
+                            <div class="pattern-apps">
+                                <span class="app-tag">Entertainment</span>
+                                <span class="app-tag">Games</span>
+                            </div>
+                            <span class="pattern-confidence">85%</span>
+                        </div>
+                        <div class="pattern-item">
+                            <span class="pattern-time">10:00 PM</span>
+                            <div class="pattern-apps">
+                                <span class="app-tag">Reading</span>
+                                <span class="app-tag">Music</span>
+                            </div>
+                            <span class="pattern-confidence">78%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-usage-chart card">
+                    <h3>App Usage vs AI Predictions</h3>
+                    <div class="chart-container" style="position: relative; height: 250px;">
+                        <canvas id="appUsageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="learned-behaviors card">
+                    <h3>💡 Learned Behaviors</h3>
+                    <div class="behavior-list">
+                        <div class="behavior-item">
+                            <span class="behavior-icon">🎮</span>
+                            <span class="behavior-text">Usually games at 7PM</span>
+                        </div>
+                        <div class="behavior-item">
+                            <span class="behavior-icon">🍔</span>
+                            <span class="behavior-text">Social media during lunch</span>
+                        </div>
+                        <div class="behavior-item">
+                            <span class="behavior-icon">📧</span>
+                            <span class="behavior-text">Email check every 2 hours</span>
+                        </div>
+                        <div class="behavior-item">
+                            <span class="behavior-icon">🎵</span>
+                            <span class="behavior-text">Music before sleep</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Tab -->
+            <section class="tab-content" id="performance">
+                <div class="performance-header card">
+                    <h2>⚡ Performance Control</h2>
+                    <p>Smart FPS and background app management</p>
+                </div>
+
+                <div class="fps-control card">
+                    <div class="control-header">
+                        <h3>🖥️ FPS Control</h3>
+                        <div class="mode-toggle">
+                            <label class="switch">
+                                <input type="checkbox" id="smartFpsToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span>Smart Mode</span>
+                        </div>
+                    </div>
+                    <div class="fps-display">
+                        <div class="current-fps">
+                            <span class="fps-value">60</span>
+                            <span class="fps-label">FPS</span>
+                        </div>
+                        <div class="fps-options">
+                            <button class="fps-btn" data-fps="30">30</button>
+                            <button class="fps-btn active" data-fps="60">60</button>
+                            <button class="fps-btn" data-fps="90">90</button>
+                            <button class="fps-btn" data-fps="120">120</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-modes card">
+                    <h3>🔋 Performance Modes</h3>
+                    <div class="mode-selector">
+                        <button class="mode-btn" data-mode="ultra-low">Ultra-Low Power</button>
+                        <button class="mode-btn active" data-mode="balanced">Balanced</button>
+                        <button class="mode-btn" data-mode="performance">Performance</button>
+                    </div>
+                </div>
+
+                <div class="system-metrics card">
+                    <h3>📊 System Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">CPU Usage</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill cpu" style="width: 45%"></div>
+                            </div>
+                            <span class="metric-value">45%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">GPU Usage</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill gpu" style="width: 32%"></div>
+                            </div>
+                            <span class="metric-value">32%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Temperature</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill temp" style="width: 38%"></div>
+                            </div>
+                            <span class="metric-value">38.5°C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="background-apps card">
+                    <h3>📱 Background Apps</h3>
+                    <div class="apps-list">
+                        <div class="app-item">
+                            <span class="app-icon">🎵</span>
+                            <div class="app-info">
+                                <span class="app-name">Spotify</span>
+                                <span class="power-usage low">Low Power</span>
+                            </div>
+                            <div class="app-status optimized">Optimized</div>
+                            <button class="app-toggle optimized"></button>
+                        </div>
+                        <div class="app-item">
+                            <span class="app-icon">💬</span>
+                            <div class="app-info">
+                                <span class="app-name">WhatsApp</span>
+                                <span class="power-usage medium">Medium Power</span>
+                            </div>
+                            <div class="app-status normal">Normal</div>
+                            <button class="app-toggle normal"></button>
+                        </div>
+                        <div class="app-item">
+                            <span class="app-icon">📘</span>
+                            <div class="app-info">
+                                <span class="app-name">Facebook</span>
+                                <span class="power-usage high">High Power</span>
+                            </div>
+                            <div class="app-status restricted">Restricted</div>
+                            <button class="app-toggle restricted"></button>
+                        </div>
+                        <div class="app-item">
+                            <span class="app-icon">📸</span>
+                            <div class="app-info">
+                                <span class="app-name">Instagram</span>
+                                <span class="power-usage medium">Medium Power</span>
+                            </div>
+                            <div class="app-status optimized">Optimized</div>
+                            <button class="app-toggle optimized"></button>
+                        </div>
+                        <div class="app-item">
+                            <span class="app-icon">📺</span>
+                            <div class="app-info">
+                                <span class="app-name">YouTube</span>
+                                <span class="power-usage high">High Power</span>
+                            </div>
+                            <div class="app-status normal">Normal</div>
+                            <button class="app-toggle normal"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Brightness Tab -->
+            <section class="tab-content" id="brightness">
+                <div class="brightness-header card">
+                    <h2>👁️ Smart Brightness</h2>
+                    <p>AI-powered gaze detection and adaptive brightness</p>
+                </div>
+
+                <div class="gaze-detection card">
+                    <h3>👀 Gaze Detection</h3>
+                    <div class="gaze-status">
+                        <div class="camera-preview">
+                            <div class="face-indicator active">
+                                <div class="eye left"></div>
+                                <div class="eye right"></div>
+                                <div class="mouth"></div>
+                            </div>
+                        </div>
+                        <div class="gaze-info">
+                            <div class="status-item">
+                                <span class="status-label">User Present</span>
+                                <div class="status-indicator active"></div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Gaze Detected</span>
+                                <div class="status-indicator active"></div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Auto Brightness</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="autoBrightnessToggle" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="brightness-control card">
+                    <h3>💡 Brightness Control</h3>
+                    <div class="brightness-display">
+                        <div class="brightness-value">65%</div>
+                        <div class="brightness-slider-container">
+                            <input type="range" id="brightnessSlider" min="0" max="100" value="65" class="brightness-slider">
+                            <div class="brightness-labels">
+                                <span>🌑</span>
+                                <span>🌞</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ambient-light">
+                        <span class="ambient-label">Ambient Light</span>
+                        <span class="ambient-value">240 lux</span>
+                    </div>
+                </div>
+
+                <div class="brightness-features card">
+                    <h3>⚙️ Smart Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-info">
+                                <span class="feature-name">Eye Tracking Mode</span>
+                                <span class="feature-desc">Adjust based on eye movement</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-info">
+                                <span class="feature-name">Blue Light Filter</span>
+                                <span class="feature-desc">Reduce strain during night</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-info">
+                                <span class="feature-name">Adaptive Dimming</span>
+                                <span class="feature-desc">Dim when user looks away</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-tab="dashboard">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Dashboard</span>
+            </button>
+            <button class="nav-btn" data-tab="predictions">
+                <span class="nav-icon">🧠</span>
+                <span class="nav-label">Predictions</span>
+            </button>
+            <button class="nav-btn" data-tab="performance">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-label">Performance</span>
+            </button>
+            <button class="nav-btn" data-tab="brightness">
+                <span class="nav-icon">💡</span>
+                <span class="nav-label">Brightness</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
