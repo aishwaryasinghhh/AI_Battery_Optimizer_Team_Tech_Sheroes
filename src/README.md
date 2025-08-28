@@ -1,3 +1,4 @@
 # Source Code
 
-The complete project source code must be added to this folder.
+This repository contains the *source code* for the NeuralBattery AI Battery Optimizer.
+
