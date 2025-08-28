@@ -10,8 +10,8 @@ ensuring the target application continues to function effectively while maximizi
 
 ### Project Artefacts
 
-- **Technical Documentation** - [Docs](docs) *(All technical details must be written in markdown files inside the docs folder in the repo)*
-- **Source Code** - [Source](src) *(All source code must be added to the src folder in the repo. The code must be capable of being successfully installed/executed and must run consistently on the intended platforms.)*
+- **Technical Documentation** - [Docs](docs)
+- **Source Code** - [Source](src) 
 - **Models Used** - *https://huggingface.co/papers/2201.12358*, *https://huggingface.co/papers/2404.17174*, *https://huggingface.co/papers/2312.17329*, *https://huggingface.co/papers/2502.18807*, *https://huggingface.co/papers/2402.00068*, *https://huggingface.co/papers/2410.23893*, *https://huggingface.co/papers/2310.14714*, *https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.2c00035?ref=article_openPDF*
 - **Models Published** - *(In case you have developed a model as a part of your solution, kindly upload it on Hugging Face under appropriate open source license and add the link here.)*
 - **Datasets Used** - *(Links to all datasets used in the project. You are permitted to use publicly available datasets under licenses like Creative Commons, Open Data Commons, or equivalent.)*
